@@ -63,8 +63,6 @@ app.use( express.static('public') );
 // });
 
 app.get('*', (req, res) => {
-
-    res.sendFile(__dirname + '/public/index.html');
     
     // res.sendFile(__dirname + '/public/404.html');
 
@@ -73,6 +71,8 @@ app.get('*', (req, res) => {
     //     titulo: 'Curso de Node | ',
     //     tituloWeb: 'Curso de Node',
     // });
+
+    res.sendFile(__dirname + '/public/index.html');
   
 });
  
