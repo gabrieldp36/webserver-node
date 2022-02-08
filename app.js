@@ -20,64 +20,51 @@ app.use( express.static('public') );
 
 // Definimos nuestras rutas.
 
-// app.get('/hola-mundo', (req, res) => {
+app.get('/', (req, res) => {
 
-//     res.send('Hola mundo en su ruta respectiva');
-  
-// });
+    // res.sendFile(__dirname + '/public/index.html');
 
-// app.get('/', (req, res) => {
+    res.render('home', {
+        nombre: 'Alumno: Gabriel Domínguez Prado',
+        titulo: 'Curso de Node | ',
+        tituloWeb: 'Curso de Node',
+    });
+});
 
-//     // res.sendFile(__dirname + '/public/index.html');
+app.get('/generic', (req, res) => {
 
-//     res.render('home', {
-//         nombre: 'Alumno: Gabriel Domínguez Prado',
-//         titulo: 'Curso de Node | ',
-//         tituloWeb: 'Curso de Node',
-//     });
+    // res.sendFile(__dirname + '/public/generic.html');
 
-// });
+    res.render('generic', {
+        nombre: 'Alumno: Gabriel Domínguez Prado',
+        titulo: 'Curso de Node | ',
+        tituloWeb: 'Curso de Node',
+    });
+});
 
-// app.get('/generic', (req, res) => {
+app.get('/elements', (req, res) => {
 
-//     // res.sendFile(__dirname + '/public/generic.html');
+    // res.sendFile(__dirname + '/public/elements.html');
 
-//     res.render('generic', {
-//         nombre: 'Alumno: Gabriel Domínguez Prado',
-//         titulo: 'Curso de Node | ',
-//         tituloWeb: 'Curso de Node',
-//     });
-  
-// });
-
-// app.get('/elements', (req, res) => {
-
-//     // res.sendFile(__dirname + '/public/elements.html');
-
-//     res.render('elements', {
-//         nombre: 'Alumno: Gabriel Domínguez Prado',
-//         titulo: 'Curso de Node | ',
-//         tituloWeb: 'Curso de Node',
-//     });
-  
-// });
+    res.render('elements', {
+        nombre: 'Alumno: Gabriel Domínguez Prado',
+        titulo: 'Curso de Node | ',
+        tituloWeb: 'Curso de Node',
+    });
+});
 
 app.get('*', (req, res) => {
-    
+
     // res.sendFile(__dirname + '/public/404.html');
 
-    // res.render('404', {
-    //     nombre: 'Alumno: Gabriel Domínguez Prado',
-    //     titulo: 'Curso de Node | ',
-    //     tituloWeb: 'Curso de Node',
-    // });
-
-    res.sendFile(__dirname + '/public/index.html');
-  
+    res.render('404', {
+        nombre: 'Alumno: Gabriel Domínguez Prado',
+        titulo: 'Curso de Node | ',
+        tituloWeb: 'Curso de Node',
+    });
 });
  
 app.listen(port, () => {
 
-    console.log(`Servidor corriendo en http://localhost:${port}.`)
-
-  });
+    console.log(`Example app listening at http://localhost:${port}`);
+});
